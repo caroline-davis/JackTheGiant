@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F1152A2F1E4A913F00AD801F /* Player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F1152A2E1E4A913F00AD801F /* Player.atlas */; };
 		F14E07891E36CD01002CBD33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E07881E36CD01002CBD33 /* AppDelegate.swift */; };
 		F14E078B1E36CD01002CBD33 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F14E078A1E36CD01002CBD33 /* GameScene.sks */; };
 		F14E078D1E36CD01002CBD33 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F14E078C1E36CD01002CBD33 /* Actions.sks */; };
@@ -82,6 +83,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F1152A2E1E4A913F00AD801F /* Player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Player.atlas; sourceTree = "<group>"; };
 		F14E07851E36CD01002CBD33 /* JackTheGiant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JackTheGiant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14E07881E36CD01002CBD33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14E078A1E36CD01002CBD33 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -230,9 +232,10 @@
 		F14E07BC1E36CD1D002CBD33 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				F1152A2E1E4A913F00AD801F /* Player.atlas */,
+				F14E07C61E36CE99002CBD33 /* Player */,
 				F14E07BD1E36CE98002CBD33 /* 1 - Pause Panel And Buttons */,
 				F14E07C21E36CE99002CBD33 /* 2 - Collectables */,
-				F14E07C61E36CE99002CBD33 /* 3 - Player */,
 				F14E07CF1E36CE99002CBD33 /* 4 - Clouds */,
 				F14E07D41E36CE99002CBD33 /* 5 - Fonts */,
 				F14E07D61E36CE99002CBD33 /* 6 - Music */,
@@ -263,7 +266,7 @@
 			path = "2 - Collectables";
 			sourceTree = "<group>";
 		};
-		F14E07C61E36CE99002CBD33 /* 3 - Player */ = {
+		F14E07C61E36CE99002CBD33 /* Player */ = {
 			isa = PBXGroup;
 			children = (
 				F14E07C71E36CE99002CBD33 /* Player 1.png */,
@@ -275,6 +278,7 @@
 				F14E07CD1E36CE99002CBD33 /* Player 7.png */,
 				F14E07CE1E36CE99002CBD33 /* Player 8.png */,
 			);
+			name = Player;
 			path = "3 - Player";
 			sourceTree = "<group>";
 		};
@@ -533,6 +537,7 @@
 				F14E07F71E36CE99002CBD33 /* Life.png in Resources */,
 				F14E08131E36CE99002CBD33 /* Easy Button.png in Resources */,
 				F14E08181E36CE99002CBD33 /* Music On Button.png in Resources */,
+				F1152A2F1E4A913F00AD801F /* Player.atlas in Resources */,
 				F14E081A1E36CE99002CBD33 /* Quit Button.png in Resources */,
 				F14E08111E36CE99002CBD33 /* Back Button.png in Resources */,
 				F14E07F51E36CE99002CBD33 /* Show Score.png in Resources */,
