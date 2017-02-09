@@ -25,9 +25,11 @@ class Player: SKSpriteNode {
         for i in 2...textureAtlas.textureNames.count {
             let name = "Player \(i)"
             playerAnimation.append(SKTexture(imageNamed: name))
+            
+            print(name)
         }
         // animates the player
-        animatePlayerAction = SKAction.animate(withNormalTextures: playerAnimation, timePerFrame: 0.08, resize: true, restore: false)
+        animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.08, resize: true, restore: false)
     }
     
     func animatePlayer(){
@@ -36,6 +38,8 @@ class Player: SKSpriteNode {
     
     func stopPlayerAnimation(){
         self.removeAction(forKey: "Animate")
+        self.texture = SKTexture(imageNamed: "Player 1")
+        self.size = (self.texture?.size())!
     }
     
     func movePlayer(moveLeft: Bool) {
