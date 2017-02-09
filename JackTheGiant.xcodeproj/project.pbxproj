@@ -63,6 +63,7 @@
 		F14E081E1E36CF9D002CBD33 /* GameplayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F14E081D1E36CF9D002CBD33 /* GameplayScene.sks */; };
 		F14E08221E36D274002CBD33 /* GameplayScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E08211E36D274002CBD33 /* GameplayScene.swift */; };
 		F14E08251E36D593002CBD33 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E08241E36D593002CBD33 /* Player.swift */; };
+		F1FAF0EC1E4C23C400B433F8 /* BGClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAF0EB1E4C23C400B433F8 /* BGClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,6 +146,7 @@
 		F14E081D1E36CF9D002CBD33 /* GameplayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameplayScene.sks; sourceTree = "<group>"; };
 		F14E08211E36D274002CBD33 /* GameplayScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayScene.swift; sourceTree = "<group>"; };
 		F14E08241E36D593002CBD33 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		F1FAF0EB1E4C23C400B433F8 /* BGClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,6 +381,7 @@
 		F14E081F1E36D244002CBD33 /* Game Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F1FAF0EA1E4C236B00B433F8 /* Background Class */,
 				F14E08231E36D584002CBD33 /* Player Class */,
 				F14E08201E36D251002CBD33 /* Scene Classes */,
 			);
@@ -399,6 +402,14 @@
 				F14E08241E36D593002CBD33 /* Player.swift */,
 			);
 			name = "Player Class";
+			sourceTree = "<group>";
+		};
+		F1FAF0EA1E4C236B00B433F8 /* Background Class */ = {
+			isa = PBXGroup;
+			children = (
+				F1FAF0EB1E4C23C400B433F8 /* BGClass.swift */,
+			);
+			name = "Background Class";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,6 +600,7 @@
 				F14E07911E36CD01002CBD33 /* GameViewController.swift in Sources */,
 				F14E08251E36D593002CBD33 /* Player.swift in Sources */,
 				F14E07891E36CD01002CBD33 /* AppDelegate.swift in Sources */,
+				F1FAF0EC1E4C23C400B433F8 /* BGClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,6 +43,7 @@ class Player: SKSpriteNode {
        
     }
     
+    // stops the animation and returns it to its original state, keeps size the same across the images.
     func stopPlayerAnimation(){
         self.removeAction(forKey: "Animate")
         self.texture = SKTexture(imageNamed: "Player 1")
@@ -51,9 +52,9 @@ class Player: SKSpriteNode {
     
     func movePlayer(moveLeft: Bool) {
         if moveLeft {
-            self.position.x = self.position.x - 7
+            self.position.x -= 7
         } else {
-            self.position.x = self.position.x + 7
+            self.position.x += 7
         }
     }
     
