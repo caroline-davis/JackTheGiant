@@ -25,15 +25,22 @@ class Player: SKSpriteNode {
         for i in 2...textureAtlas.textureNames.count {
             let name = "Player \(i)"
             playerAnimation.append(SKTexture(imageNamed: name))
-            
-            print(name)
         }
         // animates the player
         animatePlayerAction = SKAction.animate(with: playerAnimation, timePerFrame: 0.08, resize: true, restore: false)
     }
     
-    func animatePlayer(){
+    func animatePlayer(moveLeft: Bool){
+        
+        // changes the sprite to go the other way when walking, fabs is absolute value
+        if moveLeft {
+            self.xScale = -fabs(self.xScale)
+        } else {
+            self.xScale = fabs(self.xScale)
+        }
+        
         self.run(SKAction.repeatForever(animatePlayerAction), withKey: "Animate")
+       
     }
     
     func stopPlayerAnimation(){

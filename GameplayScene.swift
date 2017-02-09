@@ -37,10 +37,10 @@ class GameplayScene: SKScene {
             
             if location.x > center! {
                 moveLeft = false
-                player?.animatePlayer()
+                player?.animatePlayer(moveLeft: moveLeft)
             } else {
                 moveLeft = true
-                player?.animatePlayer()
+                player?.animatePlayer(moveLeft: moveLeft)
             }
         }
         canMove = true
