@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F1152A2F1E4A913F00AD801F /* Player.atlas in Resources */ = {isa = PBXBuildFile; fileRef = F1152A2E1E4A913F00AD801F /* Player.atlas */; };
+		F14C91891E52A66700F9E81E /* CloudsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14C91881E52A66700F9E81E /* CloudsController.swift */; };
 		F14E07891E36CD01002CBD33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14E07881E36CD01002CBD33 /* AppDelegate.swift */; };
 		F14E078B1E36CD01002CBD33 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F14E078A1E36CD01002CBD33 /* GameScene.sks */; };
 		F14E078D1E36CD01002CBD33 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = F14E078C1E36CD01002CBD33 /* Actions.sks */; };
@@ -85,6 +86,7 @@
 
 /* Begin PBXFileReference section */
 		F1152A2E1E4A913F00AD801F /* Player.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Player.atlas; sourceTree = "<group>"; };
+		F14C91881E52A66700F9E81E /* CloudsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudsController.swift; sourceTree = "<group>"; };
 		F14E07851E36CD01002CBD33 /* JackTheGiant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JackTheGiant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14E07881E36CD01002CBD33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F14E078A1E36CD01002CBD33 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -174,6 +176,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F14C91871E52A64A00F9E81E /* Clouds Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F14C91881E52A66700F9E81E /* CloudsController.swift */,
+			);
+			name = "Clouds Classes";
+			sourceTree = "<group>";
+		};
 		F14E077C1E36CD00002CBD33 = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +391,7 @@
 		F14E081F1E36D244002CBD33 /* Game Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F14C91871E52A64A00F9E81E /* Clouds Classes */,
 				F1FAF0EA1E4C236B00B433F8 /* Background Class */,
 				F14E08231E36D584002CBD33 /* Player Class */,
 				F14E08201E36D251002CBD33 /* Scene Classes */,
@@ -596,6 +607,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F14E08221E36D274002CBD33 /* GameplayScene.swift in Sources */,
+				F14C91891E52A66700F9E81E /* CloudsController.swift in Sources */,
 				F14E078F1E36CD01002CBD33 /* GameScene.swift in Sources */,
 				F14E07911E36CD01002CBD33 /* GameViewController.swift in Sources */,
 				F14E08251E36D593002CBD33 /* Player.swift in Sources */,
