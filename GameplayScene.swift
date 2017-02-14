@@ -72,6 +72,8 @@ class GameplayScene: SKScene {
         getBackgrounds()
         
         cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, initialClouds: true)
+        
+        print("The random number is \(cloudsController.randomBetweenNumbers(firstNum: 2,secondNum: 5))")
     }
     
     func getBackgrounds() {
