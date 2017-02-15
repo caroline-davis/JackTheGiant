@@ -18,6 +18,10 @@ class GameViewController: UIViewController {
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
             if let scene = GameplayScene(fileNamed: "GameplayScene") {
+                
+                // allows the physicsbody to work
+                view.showsPhysics = true
+                
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
                 
