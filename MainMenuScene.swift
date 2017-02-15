@@ -21,6 +21,15 @@ class MainMenuScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             
+            if atPoint(location).name == "Start Game" {
+                let scene = GameplayScene(fileNamed: "GameplayScene")
+                // Set the scale mode to scale to fit the window
+                scene?.scaleMode = .aspectFill
+                
+                // loads the scene similiar to segue
+                self.view?.presentScene(scene!, transition: SKTransition.doorsOpenVertical(withDuration: 1))
+            }
+            
             if atPoint(location).name == "Highscore" {
                let scene = HighscoreScene(fileNamed: "HighscoreScene")
                 // Set the scale mode to scale to fit the window
