@@ -52,15 +52,6 @@ class GameplayScene: SKScene {
         for touch in touches {
             let location = touch.location(in: self)
             
-            if self.scene?.isPaused == false {
-            if location.x > center! {
-                moveLeft = false
-                player?.animatePlayer(moveLeft: moveLeft)
-            } else {
-                moveLeft = true
-                player?.animatePlayer(moveLeft: moveLeft)
-                }
-            }
             
             if atPoint(location).name == "Pause" {
                 self.scene?.isPaused = true
@@ -70,6 +61,7 @@ class GameplayScene: SKScene {
             if atPoint(location).name == "Resume" {
                 pausePanel?.removeFromParent()
                 self.scene?.isPaused = false
+                return
                 
             }
             
@@ -80,6 +72,16 @@ class GameplayScene: SKScene {
                 
                 // loads the scene similiar to segue
                 self.view?.presentScene(scene!, transition: SKTransition.doorsCloseVertical(withDuration: 1))
+            }
+            
+            if self.scene?.isPaused == false {
+                if location.x > center! {
+                    moveLeft = false
+                    player?.animatePlayer(moveLeft: moveLeft)
+                } else {
+                    moveLeft = true
+                    player?.animatePlayer(moveLeft: moveLeft)
+                }
             }
         }
         canMove = true
