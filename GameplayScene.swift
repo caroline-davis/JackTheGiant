@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameplayScene: SKScene {
+class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var cloudsController = CloudsController()
     
@@ -36,7 +36,9 @@ class GameplayScene: SKScene {
     private var pausePanel: SKSpriteNode?
     
     override func didMove(to view: SKView) {
-      initializeVariables()
+        // sets the delegate
+        physicsWorld.contactDelegate = self
+        initializeVariables()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -44,7 +46,42 @@ class GameplayScene: SKScene {
         managePlayer()
         manageBackgrounds()
         createNewClouds()
+        player?.setScore()
         
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        var firstBody = SKPhysicsBody()
+        var secondBody = SKPhysicsBody()
+        
+        if contact.bodyA.node?.name == "Player" {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        
+        if firstBody.node?.name == "Player" && secondBody.node?.name == "Life" {
+            // play the sound for life
+            
+            // increment the life
+            GameplayController.instance.incrementLife()
+            // remove the life from the game
+            secondBody.node?.removeFromParent()
+            
+        } else if firstBody.node?.name == "Player" && secondBody.node?.name == "Coin" {
+            // play the sound for coin
+            
+            // increment the coin
+            GameplayController.instance.incrementCoin()
+            // remove the coin from the game
+            secondBody.node?.removeFromParent()
+            
+        } else if firstBody.node?.name == "Player" && secondBody.node?.name == "Dark Cloud" {
+            // kill the player
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
