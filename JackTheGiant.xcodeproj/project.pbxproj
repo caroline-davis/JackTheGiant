@@ -73,6 +73,7 @@
 		F1BE0B141E65228900E36AB0 /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BE0B131E65228900E36AB0 /* GameplayController.swift */; };
 		F1F023741E65400D0002CCA3 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F023731E65400D0002CCA3 /* GameManager.swift */; };
 		F1FAF0EC1E4C23C400B433F8 /* BGClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FAF0EB1E4C23C400B433F8 /* BGClass.swift */; };
+		F1FF1BBB1E654EE800B049BE /* CollectablesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF1BBA1E654EE800B049BE /* CollectablesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +166,7 @@
 		F1BE0B131E65228900E36AB0 /* GameplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		F1F023731E65400D0002CCA3 /* GameManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		F1FAF0EB1E4C23C400B433F8 /* BGClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BGClass.swift; sourceTree = "<group>"; };
+		F1FF1BBA1E654EE800B049BE /* CollectablesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectablesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,12 +194,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F14C91871E52A64A00F9E81E /* Clouds Classes */ = {
+		F14C91871E52A64A00F9E81E /* Cloud And Collectable Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F14C91881E52A66700F9E81E /* CloudsController.swift */,
+				F1FF1BBA1E654EE800B049BE /* CollectablesController.swift */,
 			);
-			name = "Clouds Classes";
+			name = "Cloud And Collectable Controllers";
 			sourceTree = "<group>";
 		};
 		F14E077C1E36CD00002CBD33 = {
@@ -411,7 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				F1BE0B121E65224800E36AB0 /* Game Controllers And Managers */,
-				F14C91871E52A64A00F9E81E /* Clouds Classes */,
+				F14C91871E52A64A00F9E81E /* Cloud And Collectable Controllers */,
 				F1FAF0EA1E4C236B00B433F8 /* Background Class */,
 				F14E08231E36D584002CBD33 /* Player Class */,
 				F14E08201E36D251002CBD33 /* Scene Classes */,
@@ -641,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1FF1BBB1E654EE800B049BE /* CollectablesController.swift in Sources */,
 				F14E08221E36D274002CBD33 /* GameplayScene.swift in Sources */,
 				F14C91891E52A66700F9E81E /* CloudsController.swift in Sources */,
 				F14E078F1E36CD01002CBD33 /* GameScene.swift in Sources */,
