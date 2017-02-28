@@ -22,6 +22,9 @@ class MainMenuScene: SKScene {
             let location = touch.location(in: self)
             
             if atPoint(location).name == "Start Game" {
+                
+                GameManager.instance.gameStartedFromMainMenu = true
+                
                 let scene = GameplayScene(fileNamed: "GameplayScene")
                 // Set the scale mode to scale to fit the window
                 scene?.scaleMode = .aspectFill

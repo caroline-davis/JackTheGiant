@@ -103,6 +103,10 @@ class GameplayScene: SKScene {
         
         getBackgrounds()
         
+        getLabels()
+        
+        GameplayController.instance.initializeVariables()
+        
         cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, initialClouds: true)
         
         print("The random number is \(cloudsController.randomBetweenNumbers(firstNum: 2,secondNum: 5))")
@@ -143,6 +147,14 @@ class GameplayScene: SKScene {
             // clouds are already there - not initial!
             cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, initialClouds: false)
         }
+    }
+    
+    // if you need to access a childnode make sure you mention the parent, eg mainCamera
+    func getLabels(){
+        GameplayController.instance.scoreText = self.mainCamera!.childNode(withName: "Score Text") as? SKLabelNode!
+        GameplayController.instance.coinText = self.mainCamera!.childNode(withName: "Coin Score") as? SKLabelNode!
+         GameplayController.instance.lifeText = self.mainCamera!.childNode(withName: "Life Score") as? SKLabelNode!
+        
     }
     
     
