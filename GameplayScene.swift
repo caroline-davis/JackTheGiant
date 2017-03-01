@@ -25,6 +25,9 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     var center: CGFloat?
     
+    private let playerMinX = CGFloat(-214)
+    private let playerMaxX = CGFloat(214)
+    
     private var cameraDistanceBeforeCreatingNewClouds: CGFloat?
     
     let distanceBetweenClouds = CGFloat(240)
@@ -152,14 +155,33 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func getBackgrounds() {
-        bg1 = self.childNode(withName: "BG1") as? BGClass!
-        bg2 = self.childNode(withName: "BG2") as? BGClass!
-        bg3 = self.childNode(withName: "BG3") as? BGClass!
+        bg1 = self.childNode(withName: "BG 1") as? BGClass!
+        bg2 = self.childNode(withName: "BG 2") as? BGClass!
+        bg3 = self.childNode(withName: "BG 3") as? BGClass!
     }
     
     func managePlayer() {
         if canMove {
             player?.movePlayer(moveLeft: moveLeft)
+        }
+        
+        if (player?.position.x)! > playerMaxX {
+            player?.position.x = playerMaxX
+        }
+        // stops player falling through the right s
+        if (player?.position.x)! < playerMinX {
+            player?.position.x = playerMinX
+        }
+        
+        // when player is too slow the game stops.
+        if (player?.position.y)! - (player?.size.height)! * 3.7 > (mainCamera?.position.y)! {
+            print("The player is out of bounds UP")
+            self.scene?.isPaused = true
+        }
+        // when player falls the game stops.
+        if (player?.position.y)! + (player?.size.height)! * 3.7 < (mainCamera?.position.y)! {
+            print("The player is out of bounds DOWN")
+            self.scene?.isPaused = true
         }
     }
     
@@ -177,12 +199,30 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     // respawns the new clouds for the other backgrounds
     func createNewClouds() {
         
+        
         if cameraDistanceBeforeCreatingNewClouds! > (mainCamera?.position.y)! {
             
             cameraDistanceBeforeCreatingNewClouds = (mainCamera?.position.y)! - 400
             
             // clouds are already there - not initial!
             cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, initialClouds: false)
+            
+            checkForChildsOutOfScreen()
+        }
+    }
+    
+    
+    // gets rid of elements off screen but keeps Backgrounds - BGs.
+    func checkForChildsOutOfScreen(){
+        for child in children {
+            if child.position.y > (mainCamera?.position.y)! + (self.scene?.size.height)! {
+                
+                let childName = child.name?.components(separatedBy: " ")
+                if childName?[0] != "BG" {
+                    print("The child that was removed is \(child.name)")
+                    child.removeFromParent()
+                }
+            }
         }
     }
     
