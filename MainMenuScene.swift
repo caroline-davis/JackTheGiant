@@ -11,9 +11,15 @@ import SpriteKit
 
 class MainMenuScene: SKScene {
     
+    private var musicBtn: SKSpriteNode?
+    private let musicOn = SKSpriteNode(imageNamed: "Music On Button")
+    private let musicOff = SKSpriteNode(imageNamed: "Music Off Button")
     
     override func didMove(to view: SKView) {
         GameManager.instance.initializeGameData()
+        AudioManager.instance.playBGMusic()
+        
+        musicBtn = self.childNode(withName: "Music") as? SKSpriteNode!
         
     }
     
