@@ -13,6 +13,7 @@ class MainMenuScene: SKScene {
     
     
     override func didMove(to view: SKView) {
+        GameManager.instance.initializeGameData()
         
     }
     
