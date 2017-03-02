@@ -18,6 +18,7 @@ class OptionScene: SKScene {
     
     override func didMove(to view: SKView) {
         initializeVariables()
+        setSign()
         
     }
     
@@ -75,12 +76,12 @@ class OptionScene: SKScene {
                 setDifficulty(difficulty: "easy");
             }
             
-            if nodes(at: location)[1] == mediumBtn {
+            if nodes(at: location)[0] == mediumBtn {
                 sign!.position.y = mediumBtn!.position.y;
                 setDifficulty(difficulty: "medium");
             }
             
-            if nodes(at: location)[2] == hardBtn {
+            if nodes(at: location)[0] == hardBtn {
                 sign!.position.y = hardBtn!.position.y;
                 setDifficulty(difficulty: "hard");
             }
