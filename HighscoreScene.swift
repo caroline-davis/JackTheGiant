@@ -10,8 +10,34 @@ import SpriteKit
 
 class HighscoreScene: SKScene {
     
-    override func didMove(to view: SKView) {
+    private var scoreLabel: SKLabelNode?
+    private var coinLabel: SKLabelNode?
     
+    override func didMove(to view: SKView) {
+        getReference()
+        setScore()
+        
+    }
+    
+    private func getReference(){
+        scoreLabel = self.childNode(withName: "Score Label") as! SKLabelNode?
+        coinLabel = self.childNode(withName: "Coin Label") as! SKLabelNode?
+    }
+    
+    private func setScore() {
+        
+        // setting the text of the score/coin label
+        if GameManager.instance.getEasyDifficulty() == true {
+            scoreLabel?.text = String(GameManager.instance.getEasyDifficultyScore())
+            coinLabel?.text = String(GameManager.instance.getEasyDifficultyCoinScore())
+        } else if GameManager.instance.getMediumDifficulty() == true {
+            scoreLabel?.text = String(GameManager.instance.getMediumDifficultyScore())
+            coinLabel?.text = String(GameManager.instance.getMediumDifficultyCoinScore())
+         } else if GameManager.instance.getHardDifficulty() == true {
+            scoreLabel?.text = String(GameManager.instance.getHardDifficultyScore())
+            coinLabel?.text = String(GameManager.instance.getHardDifficultyCoinScore())
+        }
+        
         
     }
     
