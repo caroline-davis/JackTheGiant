@@ -87,7 +87,22 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             secondBody.node?.removeFromParent()
             
         } else if firstBody.node?.name == "Player" && secondBody.node?.name == "Dark Cloud" {
+            
             // kill the player
+            self.scene?.isPaused = true
+            
+            GameplayController.instance.life! -= 1
+            
+            if GameplayController.instance.life! >= 0 {
+            GameplayController.instance.lifeText?.text = "\(GameplayController.instance.life!)"
+            } else {
+                // show end score panel
+            }
+            firstBody.node?.removeFromParent()
+            
+            Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameplayScene.playerDied), userInfo: nil, repeats: false)
+            
+            playerDied()
         }
     }
     
@@ -286,6 +301,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func setCameraSpeed() {
+        
         if GameManager.instance.getEasyDifficulty() {
             acceleration = 0.001
             cameraSpeed = 1.5
@@ -302,7 +318,69 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
     
     }
     
+    func playerDied() {
+        
+        // if the player has any lives left they can continue on
+        if GameplayController.instance.life! >= 0 {
+            
+            GameManager.instance.gameRestartedPlayerDied = true
+            
+            let scene = GameplayScene(fileNamed: "GameplayScene")
+            // Set the scale mode to scale to fit the window
+            scene?.scaleMode = .aspectFill
+            
+            // loads the scene similiar to segue
+            self.view?.presentScene(scene!, transition: SKTransition.doorsOpenVertical(withDuration: 1))
+        } else {
+            // if they have no lives we need to check if the score or coin score is a high score for whatever difficulty they player played the game at
+            if GameManager.instance.getEasyDifficulty() {
+                let highScore = GameManager.instance.getEasyDifficultyScore()
+                let coinScore = GameManager.instance.getEasyDifficultyCoinScore()
+                
+                if highScore < GameplayController.instance.score! {
+                    GameManager.instance.setEasyDifficultyScore(GameplayController.instance.score!)
+                }
+                if coinScore < GameplayController.instance.coin! {
+                    GameManager.instance.setEasyDifficultyCoinScore(GameplayController.instance.coin!)
+                }
+                
+            } else if GameManager.instance.getMediumDifficulty() {
+                let highScore = GameManager.instance.getMediumDifficultyScore()
+                let coinScore = GameManager.instance.getMediumDifficultyCoinScore()
+                
+                if highScore < GameplayController.instance.score! {
+                    GameManager.instance.setMediumDifficultyScore(GameplayController.instance.score!)
+                }
+                if coinScore < GameplayController.instance.coin! {
+                    GameManager.instance.setMediumDifficultyCoinScore(GameplayController.instance.coin!)
+                }
+                
+            } else if GameManager.instance.getHardDifficulty() {
+                let highScore = GameManager.instance.getHardDifficultyScore()
+                let coinScore = GameManager.instance.getHardDifficultyCoinScore()
+                
+                if highScore < GameplayController.instance.score! {
+                    GameManager.instance.setHardDifficultyScore(GameplayController.instance.score!)
+                }
+                if coinScore < GameplayController.instance.coin! {
+                    GameManager.instance.setHardDifficultyCoinScore(GameplayController.instance.coin!)
+                    
+                }
+            }
+            // save the data and reload the main menu scene
+            GameManager.instance.saveData()
+            
+            let scene = MainMenuScene(fileNamed: "MainMenu")
+            // Set the scale mode to scale to fit the window
+            scene?.scaleMode = .aspectFill
+            
+            // loads the scene similiar to segue
+            self.view?.presentScene(scene!, transition: SKTransition.doorsCloseVertical(withDuration: 1))
+
+            
+        }
     
+    }
 }
 
 
