@@ -29,7 +29,7 @@ class GameplayController {
             
             GameManager.instance.gameStartedFromMainMenu = false
             
-            score = 0
+            score = 1
             coin = 0
             life = 2
             
@@ -43,16 +43,17 @@ class GameplayController {
             
             scoreText?.text = "\(score!)"
             coinText?.text = "x\(coin!)"
+            lifeText?.text = "x\(life!)"
             
             }
     }
     
-        func incrementScore(){
+        func incrementScore() {
             score! += 1
             scoreText?.text = "\(score!)"
         }
         
-        func incrementCoin(){
+        func incrementCoin() {
             coin! += 1
             score! += 200
             scoreText?.text = "\(score!)"
@@ -60,7 +61,7 @@ class GameplayController {
             
         }
         
-        func incrementLife(){
+        func incrementLife() {
             life! += 1
             score! += 300
             
