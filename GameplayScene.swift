@@ -94,15 +94,16 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             GameplayController.instance.life! -= 1
             
             if GameplayController.instance.life! >= 0 {
-            GameplayController.instance.lifeText?.text = "\(GameplayController.instance.life!)"
+            GameplayController.instance.lifeText?.text = "x\(GameplayController.instance.life!)"
             } else {
                 // show end score panel
             }
             firstBody.node?.removeFromParent()
             
+            // stops for 2 seconds before game restarts
             Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameplayScene.playerDied), userInfo: nil, repeats: false)
             
-            playerDied()
+            
         }
     }
     
@@ -185,11 +186,11 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         if canMove {
             player?.movePlayer(moveLeft: moveLeft)
         }
-        
+        // stops player falling through the left side.
         if (player?.position.x)! > playerMaxX {
             player?.position.x = playerMaxX
         }
-        // stops player falling through the right s
+        // stops player falling through the right side
         if (player?.position.x)! < playerMinX {
             player?.position.x = playerMinX
         }
@@ -198,11 +199,29 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         if (player?.position.y)! - (player?.size.height)! * 3.7 > (mainCamera?.position.y)! {
             print("The player is out of bounds UP")
             self.scene?.isPaused = true
+            
+            GameplayController.instance.life! -= 1
+            if GameplayController.instance.life! >= 0 {
+                GameplayController.instance.lifeText?.text = "x\(GameplayController.instance.life!)"
+            } else {
+                // show end panel score
+            }
+            // stops for 2 seconds before game restarts
+            Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameplayScene.playerDied), userInfo: nil, repeats: false)
         }
         // when player falls the game stops.
         if (player?.position.y)! + (player?.size.height)! * 3.7 < (mainCamera?.position.y)! {
             print("The player is out of bounds DOWN")
             self.scene?.isPaused = true
+            
+            GameplayController.instance.life! -= 1
+            if GameplayController.instance.life! >= 0 {
+                GameplayController.instance.lifeText?.text = "x\(GameplayController.instance.life!)"
+            } else {
+                // show end panel score
+            }
+            // stops for 2 seconds before game restarts
+            Timer.scheduledTimer(timeInterval: TimeInterval(2), target: self, selector: #selector(GameplayScene.playerDied), userInfo: nil, repeats: false)
         }
     }
     
