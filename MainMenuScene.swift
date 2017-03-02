@@ -12,14 +12,13 @@ import SpriteKit
 class MainMenuScene: SKScene {
     
     private var musicBtn: SKSpriteNode?
-    private let musicOn = SKSpriteNode(imageNamed: "Music On Button")
-    private let musicOff = SKSpriteNode(imageNamed: "Music Off Button")
+    private let musicOn = SKTexture(imageNamed: "Music On Button")
+    private let musicOff = SKTexture(imageNamed: "Music Off Button")
     
     override func didMove(to view: SKView) {
-        GameManager.instance.initializeGameData()
-        AudioManager.instance.playBGMusic()
-        
         musicBtn = self.childNode(withName: "Music") as? SKSpriteNode!
+        GameManager.instance.initializeGameData()
+        setMusic()
         
     }
     
@@ -58,7 +57,38 @@ class MainMenuScene: SKScene {
                 self.view?.presentScene(scene!, transition: SKTransition.doorsOpenVertical(withDuration: 1))
             }
             
+            if atPoint(location) == musicBtn {
+                handleMusicButton()
+            }
+            
         }
+    }
+    
+    private func setMusic() {
+        if GameManager.instance.getIsMusicOn() {
+            
+            if AudioManager.instance.isAudioPlayerInitialized() {
+            AudioManager.instance.playBGMusic()
+            musicBtn?.texture = musicOff
+            }
+        }
+    }
+    
+    private func handleMusicButton() {
+        
+        if GameManager.instance.getIsMusicOn(){
+            // the music is playing, turn it off
+            AudioManager.instance.stopBgMusic()
+            GameManager.instance.setIsMusicOn(false)
+            musicBtn?.texture = musicOn
+        } else {
+            // the music is not playing, turn it on
+            AudioManager.instance.playBGMusic()
+            GameManager.instance.setIsMusicOn(true)
+            musicBtn?.texture = musicOff
+        }
+        
+        GameManager.instance.saveData()
     }
     
     

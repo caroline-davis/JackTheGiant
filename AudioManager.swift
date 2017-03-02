@@ -46,5 +46,13 @@ class AudioManager {
         
     }
     
+    // stops the music reloading if its already playing
+    func isAudioPlayerInitialized() -> Bool {
+        return audioPlayer == nil
+    }
     
 }
+
+
+
+

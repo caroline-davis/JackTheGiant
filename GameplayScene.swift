@@ -72,6 +72,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         
         if firstBody.node?.name == "Player" && secondBody.node?.name == "Life" {
             // play the sound for life
+            self.run(SKAction.playSoundFileNamed("Life Sound.wav", waitForCompletion: false))
             
             // increment the life
             GameplayController.instance.incrementLife()
@@ -80,7 +81,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             
         } else if firstBody.node?.name == "Player" && secondBody.node?.name == "Coin" {
             // play the sound for coin
-            
+             self.run(SKAction.playSoundFileNamed("Coin Sound.wav", waitForCompletion: false))
             // increment the coin
             GameplayController.instance.incrementCoin()
             // remove the coin from the game
