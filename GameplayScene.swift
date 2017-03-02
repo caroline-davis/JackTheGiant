@@ -169,7 +169,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
         
         GameplayController.instance.initializeVariables()
         
-        cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, initialClouds: true)
+        cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, player: player!, initialClouds: true)
         
         print("The random number is \(cloudsController.randomBetweenNumbers(firstNum: 2,secondNum: 5))")
         
@@ -255,7 +255,7 @@ class GameplayScene: SKScene, SKPhysicsContactDelegate {
             cameraDistanceBeforeCreatingNewClouds = (mainCamera?.position.y)! - 400
             
             // clouds are already there - not initial!
-            cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, initialClouds: false)
+            cloudsController.arrangeCloudsInScene(scene: self.scene!, distanceBetweenClouds: distanceBetweenClouds, center: center!, minX: minX, maxX: maxX, player: player!, initialClouds: false)
             
             checkForChildsOutOfScreen()
         }

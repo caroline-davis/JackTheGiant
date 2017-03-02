@@ -107,7 +107,7 @@ class CloudsController {
     
     
     // creates the distance between clouds on the Y axis in the correct scene.
-    func arrangeCloudsInScene(scene: SKScene, distanceBetweenClouds: CGFloat, center: CGFloat, minX: CGFloat, maxX: CGFloat, initialClouds: Bool) {
+    func arrangeCloudsInScene(scene: SKScene, distanceBetweenClouds: CGFloat, center: CGFloat, minX: CGFloat, maxX: CGFloat, player: Player, initialClouds: Bool) {
         
         var clouds = createClouds()
         
@@ -159,6 +159,10 @@ class CloudsController {
             scene.addChild(clouds[i])
             positionY -= distanceBetweenClouds
             lastCloudPositionY = positionY
+            
+            if initialClouds {
+                player.position = CGPoint(x: clouds[0].position.x, y: clouds[0].position.y + 9)
+            }
         }
         
         

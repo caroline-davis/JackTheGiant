@@ -29,7 +29,7 @@ class GameplayController {
             
             GameManager.instance.gameStartedFromMainMenu = false
             
-            score = 1
+            score = -1
             coin = 0
             life = 2
             
